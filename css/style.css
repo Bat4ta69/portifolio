@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: .3s ease;
 }
 
 html, body{
@@ -63,18 +62,18 @@ html, body{
     display: flex;
     flex-direction: column;
     list-style-type: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     overflow: hidden;
     text-align: right;
-    width: 40%;
-    height: 100%;
+    width: min(600px, 40vw);
+    height: 100dvh;
     z-index: 998;
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s ease;
-    transform: translateX(50%);
+    transform: translateX(100%);
     background-color: rgb(70, 0, 77);
     justify-content: center;
     gap: clamp(15px, 3vh, 40px);
@@ -133,7 +132,7 @@ html, body{
 .buttons-header{
     display: flex;
     align-items: center;
-    gap: 80px;
+    gap: clamp(15px, 5vw, 80px);
 }
 
 /*fim header*/
@@ -148,7 +147,6 @@ html, body{
     justify-content: center;
     color: white;
     text-align: center;
-    min-height: calc(100dvh - 150px);
     padding: 40px 20px;
 }
 
@@ -261,8 +259,8 @@ html, body{
 
 @media screen and (max-width: 800px) {
     .topo{
-    padding: 100px 50px 50px 50px;
-    justify-content: space-between;
+        min-height: 120px;
+        padding: 40px 20px;
 }
 
 .idioma-button{
