@@ -1,0 +1,316 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: .3s ease;
+}
+
+html, body{
+    height: 100%;
+    scroll-behavior:smooth;
+    background-color:rgb(13, 0, 15);
+    overflow-x: hidden;
+    font-family: Yrsa, sans-serif;
+}
+
+
+/* Header */
+.topo{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    padding: 150px 200px 50px 200px;
+    justify-content: space-between;
+}
+
+.idioma-button{
+    font-size: 18px;
+    font-weight: 300;
+    color: white;
+    text-decoration: none;
+}
+.idioma-button:hover{
+    color: rgb(163, 65, 255);
+    font-size: 20px;
+    transform: translate(1px , -5px);
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    animation: aumentar 0.3s ease-in-out infinite alternate;
+}
+.menu-img{
+    background: url(../assets/menu-button.png) no-repeat;
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    z-index: 997;
+    position: relative;
+}
+.menu-img:hover{
+    transform: rotate(45deg);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.menu-img.active:hover{
+    transform: rotate(90deg);
+}
+.menu-links{
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    text-align: right;
+    width: 40%;
+    height: 100%;
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    transform: translateX(50%);
+    background-color: rgb(70, 0, 77);
+    justify-content: center;
+    gap: clamp(15px, 3vh, 40px);
+
+}
+.menu-links.active{
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+.close-img{
+    background: url(../assets/menu-close.png) no-repeat;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+    transform: rotate(135deg);
+    align-self: flex-end;
+    margin: 30px 30px 30px auto;
+    flex-shrink: 0;
+}
+.close-img:hover{
+    transform: rotate(90deg);
+}
+
+.menu-links a{
+    font-family: "Sekuya", system-ui;
+    text-align: right;
+    text-decoration: none;
+    color:blueviolet;
+    font-size: clamp(35px, 5vw, 80px);
+    font-weight: 600;
+    padding: 5px 20px;
+    display: inline-block;
+    position: relative;
+    opacity: 0;
+}
+.menu-links a.active{
+    animation: entrarDeCima 0.5s forwards;
+}
+
+.menu-links a:nth-child(2) { animation-delay: 0.3s; }
+.menu-links a:nth-child(3) { animation-delay: 0.4s; }
+.menu-links a:nth-child(4) { animation-delay: 0.5s; }
+.menu-links a:nth-child(5) { animation-delay: 0.6s; }
+
+.menu-links a:hover{
+    color: rgb(102, 0, 197);
+    font-size: clamp(30px, 4vw, 70px);
+    padding: 5px 70px 5px 20px;
+}
+.links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.buttons-header{
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+/*fim header*/
+
+/* Sessão Home */
+
+.home{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    min-height: calc(100dvh - 150px);
+    padding: 20px 30px;
+}
+.home h1{
+    font-size: clamp(30px, 4vw, 50px);
+    font-weight: 300;
+    font-family: "Cormorant Garamond", serif;
+    color:rgb(255, 255, 255);
+}
+.home .nome{
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(35px, 5vw, 60px);
+    font-weight: 600;
+    color:blueviolet;
+    cursor:default;
+}
+.home .nome span {
+    display: inline-block;
+    position: relative;
+    color: blueviolet; 
+    transform: translateY(0); 
+    transition: all 2s ease-out; 
+}
+.home .nome:hover > span{
+    animation: subirDescer 0.5s ease-in-out infinite alternate, colorChange 0.9s ease-in-out infinite alternate, aumentar 0.3s ease-in-out infinite alternate;
+    transition: all 2s ease-out;
+}
+
+.home p{
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 400;
+    font-family: "Yrsa", sans-serif;
+    color:rgb(255, 255, 255);
+}
+.home .btn-projetos{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: blueviolet;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    
+}
+.btn-projetos span{
+    color: blueviolet;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Yrsa", sans-serif;
+    display: inline-block;
+    position: relative;
+    transition: all 0.3s ease-out;
+}
+.btn-projetos:hover > span{
+    color: white;
+    font-weight: 600;
+    font-size: 22px;
+    padding: 0 0.5px;
+    animation: aumentar 0.3s ease-in-out infinite alternate;
+    transition: all 0.3s ease-out;
+}
+
+/* Fim da sessão Home */
+
+/* Animações */
+
+@keyframes entrarDeCima {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes subirDescer {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-2px);
+    }
+}
+@keyframes colorChange{
+    from {
+        color: blueviolet;
+    }
+
+    to {
+        color: rgb(234, 0, 255);
+    }
+}
+@keyframes aumentar {
+    from {
+        padding: 0px 0px;
+    }
+
+    to {
+        padding: 0px 1px;
+    }
+    
+}
+/* Fim das animações */
+
+/*Media Queris*/
+
+@media screen and (max-width: 800px) {
+    .topo{
+    padding: 100px 50px 50px 50px;
+    justify-content: space-between;
+}
+
+.idioma-button{
+    font-size: 18px;
+    font-weight: 300;
+    color: white;
+    text-decoration: none;
+}
+.menu-img.active{
+    transform: rotate(180deg);
+}
+
+    .close-img {
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        top: 80px;
+        right:25px;
+        transform: rotate(180deg);
+        margin: 0;
+    }
+
+.menu-links{
+    width: 100%;
+    height: 100%;
+}
+
+.menu-links a{
+    font-size: clamp(35px, 12vw, 70px);
+    font-weight: 500;
+    padding: 5px 20px;
+}
+
+.menu-links a:hover{
+    font-size: clamp(30px, 11vw, 60px);
+    padding-right: 10px;
+}
+.buttons-header{
+    gap: 30px;
+}
+
+
+}
+
+@media screen and (max-width:600px) {
+        .close-img {
+        top: 75px;
+        right:20px;
+    }
+
+    .home .nome {
+        display: block;
+        padding-bottom: 10px;
+    }
+}
+
+/*Fim das Queris*/
