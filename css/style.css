@@ -46,7 +46,6 @@ html, body{
     background-size: contain;
     width: 50px;
     height: 50px;
-    z-index: 997;
     position: relative;
 }
 .menu-img:hover{
@@ -69,7 +68,8 @@ html, body{
     text-align: right;
     width: min(600px, 40vw);
     height: 100dvh;
-    z-index: 998;
+    z-index: 999;
+    
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s ease;
@@ -213,6 +213,95 @@ html, body{
 
 /* Fim da sessão Home */
 
+/* Sessão Sobre*/
+
+.sobre{
+    width: 100%;
+    height: 100vh;
+    color:white;
+    justify-content: center;
+    align-items:center;
+    display: flex;
+}
+.sobre-container{
+    width: 70%;
+    height: 500px;
+    text-align: left;
+    justify-self: center;
+}
+.titulos-sobre{
+    display: flex;
+    position: relative;
+    align-items: flex-end;
+    z-index: 1;
+}
+.titulos-sobre::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 90%;
+    height: 3px;
+    background-color: rgb(163, 65, 255);
+}
+.titulo-sobre{
+    color:blueviolet;
+    font-size: clamp(25px, 6vw, 50px);
+    padding-bottom: 10px ;
+    border:3px solid rgb(163, 65, 255);
+    border-right: 0;
+    border-radius: 10px 10px 0 0;
+    padding: 0px 10px 0px 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+     z-index: 3;
+     background: none;
+}
+.titulo-objetivo{
+    color:blueviolet;
+    font-size: clamp(25px, 6vw, 50px);
+    padding-bottom: 10px ;
+    border:3px solid rgb(163, 65, 255);
+    border-left: 0;
+    border-radius: 10px 10px 0 0;
+    padding: 0px 5px 0px 5px;
+    cursor: pointer;
+     z-index: 3;
+     transition: all 0.5s ease;
+     background: none;
+}
+
+.titulo-sobre:hover, .titulo-objetivo:hover, .titulo-sobre.active:hover, .titulo-objetivo.active:hover{
+    color: white;
+    
+}
+
+.titulo-sobre.active {
+    color: white;
+    background: linear-gradient(rgb(198, 0, 216), rgb(231, 169, 169));
+    padding: 20px;
+    border-right: 3px solid rgb(163, 65, 255);
+}
+.titulo-objetivo.active{
+    color: white;
+    background: linear-gradient(rgb(198, 0, 216), rgb(231, 169, 169));
+    padding: 20px;
+    border-left: 3px solid rgb(163, 65, 255);
+}
+
+.conteudo {
+    display: none;
+    font-size: 18px;
+    padding-top: 40px;
+    line-height: 30px;
+    width: 90%;
+    white-space: pre-line;
+}
+
+.conteudo.active {
+    display: block;
+}
+/* Fim da Sessão sobre*/
 /* Animações */
 
 @keyframes entrarDeCima {
@@ -301,7 +390,14 @@ html, body{
 .buttons-header{
     gap: 30px;
 }
-
+.btn-projetos span{
+    color: white;
+    font-weight: 600;
+    font-size: 22px;
+    padding: 0 0.5px;
+    animation: aumentar 0.3s ease-in-out infinite alternate;
+    transition: all 0.3s ease-out;
+}
 
 }
 
@@ -315,6 +411,42 @@ html, body{
         display: block;
         padding-bottom: 10px;
     }
+    .home .nome > span{
+    animation: subirDescer 0.5s ease-in-out infinite alternate, colorChange 0.9s ease-in-out infinite alternate, aumentar 0.3s ease-in-out infinite alternate;
+    transition: all 2s ease-out;
+}
+
+.sobre-container{
+    width: 100%;
+    height: 85%;
+    text-align: center;
+    justify-self: center;
+}
+
+.titulos-sobre{
+    align-items: center;
+    flex-direction: column;
+}
+.titulo-objetivo, .titulo-sobre{
+    width: 100%;
+    border: 3px solid rgb(163, 65, 255);
+    border-radius: 0;
+    padding: 10px;
+}
+.titulo-objetivo{
+    border-top: none;
+}
+.conteudos-sobre{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.conteudo {
+    padding: 30px 10px 0 10px;
+    line-height: 30px;
+    width: 100%;
+}
 }
 
 /*Fim das Queris*/
