@@ -398,6 +398,14 @@ html, body{
     animation: aumentar 0.3s ease-in-out infinite alternate;
     transition: all 0.3s ease-out;
 }
+.sobre-container{
+    width: 80%;
+    height: 85%;
+    text-align: left;
+    justify-self: center;
+}
+
+
 
 }
 
@@ -436,14 +444,8 @@ html, body{
 .titulo-objetivo{
     border-top: none;
 }
-.conteudos-sobre{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-}
 .conteudo {
-    padding: 30px 10px 0 10px;
+    padding: 30px 20px 0 20px;
     line-height: 30px;
     width: 100%;
 }
