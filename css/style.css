@@ -418,10 +418,6 @@ html, body{
 
 @media screen and (max-width:600px) {
 
-        .topo{
-        position: fixed;
-    }
-    
         .close-img {
         top: 75px;
         right:20px;
