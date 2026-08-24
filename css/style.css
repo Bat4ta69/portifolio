@@ -375,6 +375,9 @@ html, body{
         transform: rotate(180deg);
         margin: 0;
     }
+    .close-img:hover{
+    transform: rotate(180deg);
+}
 
 .menu-links{
     width: 100%;
