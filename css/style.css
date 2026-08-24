@@ -437,6 +437,7 @@ html, body{
 .sobre{
     min-height: 100dvh;
     height: auto;
+    padding: 60px 0px;
 }
 .sobre-container{
     width: 100%;
