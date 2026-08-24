@@ -22,7 +22,7 @@
                 <div class="menu-links">
                     <div class="close-img"></div>
                     <div class="links">
-                        <a href="#home">Home</a>
+                        <a href="#home" id="homom">Home</a>
                         <a href="#sobre" id="about">Sobre</a>
                         <a href="#projetos" id="projects">Projetos</a>
                         <a href="#contato" id="contacts">Contato</a>
@@ -33,16 +33,47 @@
         </div>
     </header><!--fim do topo-->
 
-    <section class="home" id="home"><!--inicio da home-->
-        <div class="home-container"></div>
-        <div class="home-text">
-            <h1 id="titulo">Olá, eu sou o <span class="nome">Gabriel Brito</span></h1>
-            <p id="descricao">Desenvolvedor Front-end em formação,<br> estudante de Engenharia de Software.</p>
-            <a href="#projetos" class="btn-projetos" id="linkProjetos">➔ Meus Projetos</a>
-        </div>
-        </div>
-    </section><!--fim da home-->
+    <main>
+        <section class="home" id="home"><!--inicio da home-->
+            <div class="home-text">
+                <h1 id="titulo">Olá, eu sou o <span class="nome">Gabriel Brito</span></h1>
+                <p id="descricao">Desenvolvedor Front-end em formação,<br> estudante de Engenharia de Software.</p>
+                <a href="#projetos" class="btn-projetos" id="linkProjetos">➔ Meus Projetos</a>
+            </div>
+            </div>
+        </section><!--fim da home-->
 
+        <section class="sobre" id="sobre">
+            <div class="sobre-container">
+                <div class="titulos-sobre">
+                    <button class="titulo-sobre button active" data-tab="sobreTexto" id="tituloSobre">Sobre Mim</button>
+                    <button class="titulo-objetivo" data-tab="objetivoTexto" id="tituloObjetivo">Objetivos</button>
+                </div>
+                
+                <div conteudos-sobre>
+                    <div class="conteudo active" id="sobreTexto">
+                        <p>Olá, eu sou Gabriel, mas também sou conhecido como Bat4ta. Sou estudante de Engenharia de Software e tenho grande interesse por tecnologia e desenvolvimento.
+
+                        Meu principal foco é o Front-End, área em que gosto de transformar ideias em interfaces funcionais, responsivas e visualmente interessantes. Também tenho explorado o desenvolvimento Full Stack para ampliar meus conhecimentos e entender melhor todas as etapas de uma aplicação.
+
+                        Gosto de aprender colocando a mão na massa, criando projetos e experimentando diferentes tecnologias. Acredito que cada projeto é uma oportunidade de aprender algo novo e evoluir tanto tecnicamente quanto pessoalmente.
+                        </p>
+                    </div>
+                    <div class="conteudo" id="objetivoTexto">
+                        <p>Meu objetivo é continuar evoluindo como desenvolvedor e construir uma base sólida na área de tecnologia.
+
+                        Quero aprofundar meus conhecimentos em desenvolvimento Front-End, enquanto continuo explorando outras áreas do desenvolvimento de software.
+
+                        Busco constantemente transformar o que aprendo em projetos reais, melhorar minha capacidade de resolver problemas e desenvolver aplicações cada vez mais completas, acessíveis e bem estruturadas.
+
+                        Mais do que apenas aprender novas tecnologias, quero entender como utilizá-las para criar experiências que realmente façam sentido para as pessoas.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
     <script src="./js/scripts.js"></script>
 </body>
 </html>
