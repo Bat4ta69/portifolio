@@ -15,6 +15,10 @@ html, body{
     font-family: Yrsa, sans-serif;
 }
 
+#home,
+#sobre {
+    scroll-margin-top: 120px;
+}
 
 /* Header */
 .topo{
@@ -46,7 +50,6 @@ html, body{
     background-size: contain;
     width: 50px;
     height: 50px;
-    z-index: 997;
     position: relative;
 }
 .menu-img:hover{
@@ -69,7 +72,8 @@ html, body{
     text-align: right;
     width: min(600px, 40vw);
     height: 100dvh;
-    z-index: 998;
+    z-index: 999;
+    
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s ease;
@@ -77,12 +81,12 @@ html, body{
     background-color: rgb(70, 0, 77);
     justify-content: center;
     gap: clamp(15px, 3vh, 40px);
-
 }
 .menu-links.active{
     opacity: 1;
     transform: translateX(0);
     pointer-events: auto;
+    transition: all 0.3s ease;
 }
 .close-img{
     background: url(../assets/menu-close.png) no-repeat;
@@ -93,6 +97,8 @@ html, body{
     align-self: flex-end;
     margin: 30px 30px 30px auto;
     flex-shrink: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 .close-img:hover{
     transform: rotate(90deg);
@@ -109,6 +115,7 @@ html, body{
     display: inline-block;
     position: relative;
     opacity: 0;
+    transition: all 0.3s ease;
 }
 .menu-links a.active{
     animation: entrarDeCima 0.5s forwards;
@@ -141,7 +148,7 @@ html, body{
 
 .home{
     width: 100%;
-    min-height: calc(100dvh - 150px);
+    min-height: calc(100dvh - 100px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -170,11 +177,11 @@ html, body{
     position: relative;
     color: blueviolet; 
     transform: translateY(0); 
-    transition: all 2s ease-out; 
+    animation: voltar 0.3s ease-out forwards, colorChange 0.9s ease infinite alternate;
+
 }
 .home .nome:hover > span{
-    animation: subirDescer 0.5s ease-in-out infinite alternate, colorChange 0.9s ease-in-out infinite alternate, aumentar 0.3s ease-in-out infinite alternate;
-    transition: all 2s ease-out;
+    animation: subirDescer 0.5s ease infinite alternate, aumentar 0.3s ease-in-out infinite alternate, colorChange 0.9s ease infinite alternate;
 }
 
 .home p{
@@ -185,6 +192,7 @@ html, body{
 }
 .home .btn-projetos{
     display: inline-block;
+    position: relative;
     margin-top: 20px;
     padding: 10px 20px;
     color: blueviolet;
@@ -198,8 +206,6 @@ html, body{
     font-size: 20px;
     font-weight: 400;
     font-family: "Yrsa", sans-serif;
-    display: inline-block;
-    position: relative;
     transition: all 0.3s ease-out;
 }
 .btn-projetos:hover > span{
@@ -210,9 +216,191 @@ html, body{
     animation: aumentar 0.3s ease-in-out infinite alternate;
     transition: all 0.3s ease-out;
 }
+.btn-projetos::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+.btn-projetos:hover::after{
+    width: 100%;
+}
 
 /* Fim da sessão Home */
 
+/* Sessão Sobre*/
+
+.sobre{
+    width: 100%;
+    min-height: 100dvh;
+    color:white;
+    justify-content: center;
+    align-items:center;
+    display: flex;
+}
+.sobre-container{
+    width: 70%;
+    height: 500px;
+    text-align: left;
+    justify-self: center;
+}
+.titulos-sobre{
+    display: flex;
+    position: relative;
+    align-items: flex-end;
+    z-index: 1;
+}
+.titulos-sobre::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 90%;
+    height: 3px;
+    background-color: rgb(163, 65, 255);
+}
+.titulo-sobre{
+    color:blueviolet;
+    font-size: clamp(25px, 6vw, 50px);
+    padding-bottom: 10px ;
+    border:3px solid rgb(163, 65, 255);
+    border-right: 0;
+    border-radius: 10px 10px 0 0;
+    padding: 0px 10px 0px 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+     z-index: 3;
+     background: none;
+     font-family: 'FOswald', 'Arial Narrow', Arial, sans-serif;
+}
+.titulo-objetivo{
+    color:blueviolet;
+    font-size: clamp(25px, 6vw, 50px);
+    padding-bottom: 10px ;
+    border:3px solid rgb(163, 65, 255);
+    border-left: 0;
+    border-radius: 10px 10px 0 0;
+    padding: 0px 5px 0px 5px;
+    cursor: pointer;
+     z-index: 3;
+     transition: all 0.5s ease;
+     background: none;
+     font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+}
+
+.titulo-sobre:hover, .titulo-objetivo:hover, .titulo-sobre.active:hover, .titulo-objetivo.active:hover{
+    color: white;
+    
+}
+
+.titulo-sobre.active {
+    color: white;
+    background: linear-gradient(rgb(198, 0, 216), rgb(231, 169, 169));
+    padding: 20px;
+    border-right: 3px solid rgb(163, 65, 255);
+}
+.titulo-objetivo.active{
+    color: white;
+    background: linear-gradient(rgb(198, 0, 216), rgb(231, 169, 169));
+    padding: 20px;
+    border-left: 3px solid rgb(163, 65, 255);
+}
+
+.conteudo {
+    display: none;
+    font-size: 18px;
+    padding-top: 40px;
+    line-height: 30px;
+    width: 90%;
+    white-space: pre-line;
+    font-family: 'Yrsa', sans-serif ;
+    font-size: 300;
+}
+
+.conteudo.active {
+    display: block;
+}
+/* Fim da Sessão sobre*/
+
+/*Sessão Projetos*/
+
+.projetos{
+    width: 100%;
+    min-height: 100dvh;
+    color:white;
+    justify-content: center;
+    align-items:left;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5%;
+}
+
+.container-projetos{
+    width: 55%;
+    height: auto;
+    padding: 0 2%;
+
+}
+.titulo-projetos{
+    font-family: 'Cormorant Garamond', sans-serif;
+    font-size: 40px;
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+.projeto{
+    font-size: 34px;
+    border-bottom: 1px solid white;
+    padding: 20px 0 20px 0;
+    font-weight: bold;
+    font-family: 'Cormorant Garamond', sans-serif ;
+    cursor: pointer;
+    position: relative;
+}
+.projeto::before {
+    content: "→";
+    display: inline-block;
+    width: 0;
+    margin-left: 0;
+    margin-bottom: -10px;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateX(-10px);
+    transition: 
+        width 0.3s ease,
+        margin-left 0.3s ease,
+        opacity 0.2s ease,
+        transform 0.3s ease;
+}
+
+.projeto:hover::before {
+    width: 35px;
+    margin-left: 5px;
+    opacity: 1;
+    transform: translateX(0);
+}
+.projeto a{
+    display: inline-block;
+    position: relative;
+}
+.projeto a::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+.projeto:hover a::after {
+    width: 100%;
+}
+/*Fim sessão Projetos*/
 /* Animações */
 
 @keyframes entrarDeCima {
@@ -253,6 +441,15 @@ html, body{
     }
     
 }
+@keyframes voltar {
+    from {
+        transform: translateY(-2px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
 /* Fim das animações */
 
 /*Media Queris*/
@@ -282,10 +479,16 @@ html, body{
         transform: rotate(180deg);
         margin: 0;
     }
+    .close-img:hover{
+    transform: rotate(180deg);
+}
 
 .menu-links{
     width: 100%;
-    height: 100%;
+    height: 100dvh;
+    position: fixed;
+    top: 0;
+    right: 0;
 }
 
 .menu-links a{
@@ -301,6 +504,21 @@ html, body{
 .buttons-header{
     gap: 30px;
 }
+.btn-projetos span{
+    color: white;
+    font-weight: 600;
+    font-size: 22px;
+    padding: 0 0.5px;
+    animation: aumentar 0.3s ease-in-out infinite alternate;
+    transition: all 0.3s ease-out;
+}
+.sobre-container{
+    width: 80%;
+    height: 85%;
+    text-align: left;
+    justify-self: center;
+}
+
 
 
 }
@@ -315,6 +533,48 @@ html, body{
         display: block;
         padding-bottom: 10px;
     }
+    .home .nome > span{
+    animation: subirDescer 0.5s ease-in-out infinite alternate, colorChange 0.9s ease-in-out infinite alternate, aumentar 0.3s ease-in-out infinite alternate;
+    transition: all 2s ease-out;
+}
+
+.sobre{
+    min-height: 100dvh;
+    height: auto;
+    padding: 60px 0px;
+}
+.sobre-container{
+    width: 100%;
+    height: auto;
+    text-align: center;
+    justify-self: center;
+}
+
+.titulos-sobre{
+    align-items: center;
+    flex-direction: column;
+}
+.titulo-objetivo, .titulo-sobre{
+    width: 100%;
+    border: 3px solid rgb(163, 65, 255);
+    border-radius: 0;
+    padding: 10px;
+}
+.titulo-objetivo{
+    border-top: none;
+}
+.conteudo {
+    padding: 30px 20px 0 20px;
+    line-height: 30px;
+    width: 100%;
+}
+
+.container-projetos{
+    width: 100%;
+    height: auto;
+    padding: 0;
+
+}
 }
 
 /*Fim das Queris*/
