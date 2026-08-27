@@ -341,7 +341,6 @@ html, body{
 
 .container-projetos{
     width: 55%;
-    height: auto;
     padding: 0 2%;
 
 }
@@ -571,7 +570,7 @@ html, body{
 
 .container-projetos{
     width: 100%;
-    height: auto;
+    height: 100vh;
     padding: 0;
 
 }
