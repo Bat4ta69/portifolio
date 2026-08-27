@@ -11,23 +11,35 @@ html, body{
     margin: 0;
     padding: 0;
     background-color:rgb(13, 0, 15);
-    overflow-x: hidden;
     font-family: Yrsa, sans-serif;
+}
+body {
+    padding-top: 150px;
 }
 
 #home,
-#sobre {
+#sobre,
+#projetos,
+#contato {
     scroll-margin-top: 120px;
 }
 
 /* Header */
 .topo{
     width: 100%;
-    min-height: 150px;
+    min-height: 100px;
+    height: 100px;
     display: flex;
     align-items: center;
     padding: 50px clamp(20px, 10vw, 200px) 30px;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .idioma-button{
